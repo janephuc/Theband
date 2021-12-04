@@ -13,7 +13,7 @@
 }
 
 /* Mobile */
-@media (max-width: 739px) {
+@media (min-width: 375px) and (max-width: 739px) {
     #nav {
         display: block;
     }

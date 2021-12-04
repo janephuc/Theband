@@ -1,0 +1,502 @@
+/*reset CSS*/
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-family: Arial, Helvetica, sans-serif;
+    scroll-behavior: smooth;
+}
+
+.text-white{
+    color: white;
+}
+
+#main{
+
+}
+
+#header{
+    height: 46px;
+    background-color: #000000;
+    position: fixed;
+    top:0;
+    left:0;
+    right: 0;
+    z-index: 1;
+}
+
+/* độ rộng của Nav bằng chính nó - không chiếm hết nguyên thanh Header */
+#nav{
+    display: inline-block;
+}
+
+/* Dùng để bỏ kí tự đầu được mặc định trong List - UL */
+#nav .subnav{
+    list-style-type: none;
+}
+
+#nav li{
+    position: relative;
+}
+
+/* Vì thuộc tính này ảnh hưởng đến subnav, nên phải tách riêng ra */
+#nav > li{
+    display: inline-block;
+}
+
+#nav li a{
+    text-decoration: none;
+    line-height: 46px;
+    padding: 0 24px;
+    display: block;
+}
+
+/* Dùng để chỉnh subnav ko bị cùng màu với nav - Bỏ color tại #nav li a và cho vào đây*/
+#nav > li > a{
+    color: rgb(233 222 233 / 88%);
+    text-transform: uppercase;
+}
+
+/* #nav li:hover a{
+    color: #000;
+    background-color: #ccc;
+    display: inline-block;
+} */
+/* bỏ khúc này đi và thay thế bằng phần bên dưới để subnav được tách riêng ra không bị ảnh hưởng */
+
+#nav > li:hover > a,
+#nav .subnav > li:hover {
+    color: #000;
+    background-color: rgb(221, 221, 221);
+}
+
+/* Hiện khung subnav khi di chuột vào Li a "More" */
+#nav li:hover .subnav{
+    display: block;
+}
+
+#nav .subnav{
+    /* Ẩn khung subnav đi và di chuột vào hiện ra */
+    display: none;
+    /* postiion khung subnav phụ thuộc MORE nằm trong thẻ nav li */
+    position: absolute;
+    /* thêm 2 cái này vô để đảm bảo khung subnav luôn nằm đúng vị trí nếu có thuộc tính nào khác tác động vào */
+    top: 100%;
+    left:0px;
+    background-color: rgb(245, 233, 245);
+    /* tạo đổ bóng cho khung của subnav */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    min-width: 160px;
+}
+
+/* Dùng để chỉnh màu chữ subnav từ mặc định sang màu đen*/
+#nav .subnav a{
+    color: black;
+    padding: 0 16px;
+    line-height: 38px;
+}
+
+/* Gán thuộc tính :hover tách biệt cho từng subnav */
+/* Nhưng vì cùng chung thuộc tính với #nav > li:hover > a nên chúng ta sẽ gộp dùng chung dòng code không cần viết riêng ra như vầy */
+/* #nav .subnav > li:hover{
+    color: #000;
+    background-color: #ccc;
+} */
+
+/* Điều chỉnh icon của More nhỏ lại */
+#nav .nav-arrow-down{
+    font-size: 13px;
+}
+
+/* Phần này tạo icon kính loop bên phải của Header */
+#header .mobile-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: none;
+}
+
+#header .mobile-button,
+#header .button{
+    float: right;
+    padding: 0 21px;
+}
+
+#header .mobile-icon,
+#header .icon{
+    color: white;
+    font-size: 20px;
+    line-height: 46px; 
+}
+
+#header .mobile-button:hover{
+    cursor: pointer;
+    background-color: rgb(226, 202, 202);
+}
+#header .mobile-button:hover .mobile-icon{
+    color: black;
+}
+
+#header .button:hover {
+    cursor: pointer;
+    background-color:rgb(243, 191, 245);
+}
+#slider{
+    margin-top:  46px;
+    padding-top: 50%;
+    background:
+    url('https://images.pexels.com/photos/3052360/pexels-photo-3052360.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260') 
+    top center / cover no-repeat;
+    position: relative;
+}
+#slider .text-content {
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    color: rgb(250, 236, 236);
+    transform: translateX(-50%);
+    text-align: center;
+
+    /* width: 100%; hoặc là
+        right: 0;
+        left: 0; */
+}
+#slider .text-heading{
+    font-weight: 400;
+    font-size: 30px;
+}
+#slider .text-description{
+    font-size: 20px; 
+}
+
+#content{
+
+}
+#content .content-section{
+    width: 800px;
+    padding: 64px 0 112px;
+    margin-left: auto;
+    margin-right: auto;
+
+    max-width: 100%;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+#content .section-heading{ 
+    font-size: 30px;
+    text-align: center;
+    letter-spacing: 4px;
+    font-weight: 400;
+}
+#content .section-sub-heading{
+    font-size: 15px;
+    text-align: center;
+    font-style: italic;
+    margin-top: 25px;
+    opacity: 0.6;
+}
+#content .about-text{
+    margin-top: 25px;
+    font-size: 15px;
+    line-height: 1.5;
+    text-align: justify;
+}
+
+#content .member-list{
+    margin-top: 48px;
+    text-align: center;
+    overflow: hidden;
+}
+#content .member-item{
+    float: left;
+    width: 33.33333%;
+}
+#content .member-name{
+    font-size: 15px;
+    opacity: 0.8;
+}
+#content .member-img{
+    margin-top: 15px;
+    border-radius: 5px;
+}
+
+
+.tour-section{
+    background-color: #000;
+}
+.ticket-list{
+    background-color: white;
+    margin-top: 40px;
+}
+.ticket-list li{
+    color: #757575;
+    font-size: 15px;
+    padding: 11px 16px;
+    border-bottom: #ddd solid 1px;
+    list-style-type: none;
+}
+.ticket-list .sold-out{
+    background-color: rgb(228, 57, 57);
+    color: white;
+    padding: 3px 4px;
+    margin-left: 16px;
+}
+.ticket-list .quantity{
+    float: right;
+    margin-top: -3px;
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+    background-color: black;
+    color: white;
+    border-radius: 50%;
+}
+
+
+.place-list{
+    margin: 32px -8px 0px;
+    overflow: hidden;
+}
+.place-item{
+    float: left;
+    width: 33.33333%;
+    padding: 0 8px;
+}
+.place-img{
+    width: 100%;
+    display: block;
+}
+.place-img:hover{
+    opacity: 0.6;
+}
+.place-body{
+    padding: 16px;
+    background-color: white;
+    color: black;
+    font-size: 15px;
+}
+.place-heading{
+
+}
+.place-time{
+    margin-top: 15px;
+    color: #757575;
+    line-height: 1.4;
+}
+.place-desc{
+    margin-top: 15px;
+}
+.btn{
+    color: white;
+    background-color: black;
+    text-decoration: none;
+    padding: 11px 16px;
+    display: inline-block;
+    margin-top: 15px;
+    border-color: black;
+}
+.btn:hover{
+    color: #000;
+    background-color: rgb(221, 221, 221);
+    border-color: rgb(221, 221, 221) ;
+}
+
+.modal{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.4);
+    align-items: center;
+    justify-content: center;
+    /*display: flex;*/
+    display: none;
+}
+.modal.open{
+    display: flex;
+}
+
+@keyframes modalFadeIn {
+    from{
+        transform: translateY(-140px);
+        opacity: 0;
+    }
+    to{
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.modal-cotainer{
+    background: #fff;
+    width: 900px;
+    max-width: calc(100% - 32px);
+    min-height: 200px;
+    position: relative;
+    animation: modalFadeIn ease 0.5s;
+}
+.modal-header{
+    background: #009688;
+    height: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    color: white;
+}
+.modal-heading-icon{
+    padding: 16px;
+}
+.modal-close{
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: white;
+    font-size: 20px;
+    padding: 12px;
+    opacity: 0.7;
+}
+.modal-close:hover{
+    opacity: 1;
+}
+.modal-body{
+    padding: 16px;
+}
+.modal-label{
+    display: block;
+    font-size: 15px;
+    margin-bottom: 12px;
+}
+.modal-input{
+    border: 1px solid #ccc;
+    width: 100%;
+    font-size: 15px;
+    padding: 10px;
+    margin-bottom: 24px;
+}
+#buy-tickets{
+    background: #009688;
+    border: none;
+    color: white;
+    width: 100%;
+    font-size: 15px;
+    text-transform: uppercase;
+    padding: 18px;
+}
+#buy-tickets:hover{
+    background: #ccc;
+    color: black;
+    cursor: pointer;
+}
+.modal-footer{
+    padding: 16px;
+    text-align: right;
+}
+.modal-footer a{
+    color: #009688;
+}
+
+/* Áp dụng Row Columns vào phần Contact */
+.row {
+    margin-left: -8px;
+    margin-right: -8px;
+}
+.col {
+    float: left;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+.col-half {
+    width: 50%;
+}
+.col-third {
+    width: 33.3333%;
+}
+.col-full {
+    width: 100%;
+}
+
+.contact-content{
+    margin-top: 48px;
+}
+.contact-info{
+    font-size: 18px;
+    line-height: 1.5;
+}
+.contact-info i[class*="ti-"] {
+    width: 30px;
+    display: inline-block;
+}
+
+
+.row::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+.mt-8 {
+    margin-top: 8px;
+}
+.mt-16 {
+    margin-top: 16px;
+}
+
+.contact-form {
+    font-size: 15px;
+}
+.contact-form .form-control {
+    padding: 10px;
+    border: 1px solid #ccc;
+    width: 100%;
+}
+.contact-form .form-submit-btn {
+    background-color: black;
+    color: white;
+    border: 1px solid black;
+    padding: 10px 16px;
+    float: right;
+}
+.contact-form .form-submit-btn:hover {
+    background-color: #ccc;
+    color: black;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+
+.map-section img {
+    width: 100%;
+    opacity: 0.9;
+}
+
+
+#footer {
+    padding: 64px 16px;
+    color: rgb(124, 121, 121);
+    text-align: center;
+    left: 0;
+    right: 0;
+}
+
+#footer .footer-icon a {
+    initial-letter-align: 4px;
+    padding: 5px;
+    font-size: 30px !important;
+    text-decoration: none;
+    color: rgb(68, 68, 68)
+}
+#footer .footer-icon a:hover {
+    color: rgb(0, 0, 0, 0.4);
+}
+
+.footer-text {
+    margin-top: 15px;
+}
+.footer-text a{
+    color: inherit;
+    font-size: 15px;
+}
